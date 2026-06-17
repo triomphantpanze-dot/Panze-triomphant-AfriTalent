@@ -98,3 +98,39 @@ h1, h2, h3, h4, h5, h6 {
 .testimonials-section {
     padding: 5rem 0;
 }
+@media (max-width: 992px){
+
+    .navbar-collapse{
+        background:#fff;
+        padding:1rem;
+    }
+
+    .hero-title{
+        font-size:2.8rem;
+    }
+
+    .bento-grid{
+        grid-template-columns:1fr;
+    }
+
+    .bento-card-large,
+    .bento-card-medium{
+        grid-column:span 1;
+    }
+}
+
+@media (max-width:576px){
+
+    .hero-title{
+        font-size:2.1rem;
+    }
+
+    .hero-section,
+    .testimonials-section{
+        padding:2.5rem 0;
+    }
+
+    .bento-card{
+        padding:1.5rem;
+    }
+}
