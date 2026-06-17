@@ -1,25 +1,241 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
- <meta charset="UTF-8">
- <meta name="viewport" content="width=device-width, initial-scale=1.0">
- <title>AfriTalent — Accueil</title>
- <!-- Bootstrap 5 via CDN : feuille de style -->
- <link
-href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
-rel="stylesheet">
- <!-- Votre feuille de style personnelle -->
- <link rel="stylesheet" href="css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AfriTalent - À propos de nous</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
- <!-- Le contenu de la page sera ajoute ici -->
- <!-- Bootstrap 5 via CDN : script JavaScript -->
- <script
-src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
-></script>
- <!-- Votre script JavaScript -->
- <script src="js/main.js"></script>
-atelier-git-github.md 2026-04-01
-5 / 11
+<body class="bg-light">
+
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top shadow-sm" id="mainNavbar">
+            <div class="container">
+                <a class="navbar-brand fw-bold text-primary" href="index.html">AfriTalent</a>
+                
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto align-items-center">
+                        <li class="nav-item"><a class="nav-link" href="index.html">Accueil</a></li>
+                        <li class="nav-item"><a class="nav-link" href="freelances.html">Freelances</a></li>
+                        <li class="nav-item"><a class="nav-link" href="tarifs.html">Tarifs</a></li>
+                        <li class="nav-item"><a class="nav-link active" href="about.html" aria-current="page">À propos</a></li>
+                        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                        
+                        <li class="nav-item mx-2">
+                            <button class="btn btn-outline-secondary btn-sm" id="darkModeToggle" aria-label="Changer le mode de luminosité">
+                                <i class="fas fa-moon"></i>
+                            </button>
+                        </li>
+                        <li class="nav-item">
+                            <a class="btn btn-primary btn-sm px-3 rounded-pill" href="#" data-bs-toggle="modal" data-bs-target="#registerModal">Rejoindre AfriTalent</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="py-5">
+        <div class="container">
+            
+            <section class="row g-5 align-items-center mb-5 pb-4">
+                <div class="col-lg-6">
+                    <span class="text-primary fw-bold text-uppercase tracking-wider small">Notre Mission</span>
+                    <h1 class="display-5 fw-bold text-dark mt-2 mb-4">Connecter les talents tech africains au reste du monde</h1>
+                    <p class="lead text-muted">AfriTalent a pour ambition de valoriser les talents africains en facilitant leur accès aux opportunités professionnelles locales et internationales. La plateforme met en relation freelances qualifiés et entreprises à la recherche de compétences dans les domaines du numérique, du design et de la technologie.</p>
+                    <p class="text-muted">Nous brisons les barrières géographiques en proposant une plateforme vitrine de mise en relation transparente, sécurisée et sans intermédiaires gourmands, propulsant ainsi l'écosystème numérique africain vers de nouveaux sommets.</p>
+                </div>
+                <div class="col-lg-6">
+                    <div class="position-relative p-3">
+                        <img src="image/eq.jpeg" class="img-fluid rounded-4 shadow" alt="Équipe tech en plein travail collaboratif">
+                    </div>
+                </div>
+            </section>
+
+            <section class="my-5 pt-5">
+                <div class="text-center mb-5">
+                    <h2 class="h3 fw-bold text-dark">Les piliers de notre communauté</h2>
+                    <p class="text-muted">Ce qui nous guide au quotidien pour bâtir la tech de demain.</p>
+                </div>
+                
+                <div class="row g-3">
+                    <div class="col-12 col-md-7">
+                        <div class="bg-white p-4 rounded-4 shadow-sm h-100 d-flex flex-column justify-content-between">
+                            <div>
+                                <div class="text-primary mb-3"><i class="fas fa-graduation-cap fa-2x"></i></div>
+                                <h3 class="h5 fw-bold text-dark">Excellence Académique & Technique</h3>
+                                <p class="text-muted small mb-0">Chaque profil de freelance présent sur notre plateforme passe par un processus rigoureux de sélection et de validation de ses compétences (tests algorithmiques en Python, requêtes SQL complexes, architectures réseaux) afin de garantir des livrables irréprochables aux recruteurs.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-12 col-md-5">
+                        <div class="bg-primary text-white p-4 rounded-4 shadow-sm h-100 d-flex flex-column justify-content-between">
+                            <div>
+                                <div class="mb-3"><i class="fas fa-globe-africa fa-2x"></i></div>
+                                <h3 class="h5 fw-bold">Impact Local</h3>
+                                <p class="opacity-75 small mb-0">Nous favorisons l'employabilité directe des jeunes diplômés et des professionnels de la tech directement depuis leurs pays d’origine en Afrique.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-md-5">
+                        <div class="bg-dark text-white p-4 rounded-4 shadow-sm h-100 d-flex flex-column justify-content-between">
+                            <div>
+                                <div class="text-warning mb-3"><i class="fas fa-eye fa-2x"></i></div>
+                                <h3 class="h5 fw-bold">Transparence Totale</h3>
+                                <p class="opacity-75 small mb-0">Aucun frais caché, aucun prélèvement abusif. Les tarifs horaires affichés par les freelances sont exactement ce qu'ils perçoivent.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-md-7">
+                        <div class="bg-white p-4 rounded-4 shadow-sm h-100 d-flex flex-column justify-content-between">
+                            <div>
+                                <div class="text-success mb-3"><i class="fas fa-handshake-alt fa-2x"></i></div>
+                                <h3 class="h5 fw-bold text-dark">Confiance Mutuelle</h3>
+                                <p class="text-muted small mb-0">Grâce à notre système de paiement sécurisé par compte séquestre, les entreprises ont la certitude de payer pour un travail validé, et les freelances ont l'assurance d'être rémunérés dès la livraison de leur code ou design.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="my-5 pt-5">
+                <div class="text-center mb-5">
+                    <h2 class="h3 fw-bold text-dark">L'équipe derrière AfriTalent</h2>
+                    <p class="text-muted">Des passionnés de technologie engagés pour la réussite de vos projets.</p>
+                </div>
+
+                <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 justify-content-center">
+                    
+                    <div class="col">
+                        <div class="card h-100 border-0 shadow-sm text-center p-3 rounded-4 bg-white">
+                            <div class="d-flex justify-content-center mt-3">
+                                <img src="image/mou.jpeg" class="rounded-circle img-fluid shadow-sm" alt="Malick Ndiaye" style="width: 120px; height: 120px; object-fit: cover;">
+                            </div>
+                            <div class="card-body">
+                                <h4 class="h5 fw-bold mb-1 text-dark">Malick Ndiaye</h4>
+                                <p class="text-primary small fw-semibold mb-3">Co-fondateur & CEO</p>
+                                <p class="card-text text-muted small">Ingénieur logiciel chevronné passionné par le développement économique numérique en Afrique.</p>
+                            </div>
+                            <div class="card-footer bg-transparent border-0 mb-2 d-flex justify-content-center gap-3">
+                                <a href="#" class="text-muted"><i class="fab fa-linkedin fa-lg"></i></a>
+                                <a href="#" class="text-muted"><i class="fab fa-twitter fa-lg"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col">
+                        <div class="card h-100 border-0 shadow-sm text-center p-3 rounded-4 bg-white">
+                            <div class="d-flex justify-content-center mt-3">
+                                <img src="image/kha.jpeg" class="rounded-circle img-fluid shadow-sm" alt="Amina Diallo" style="width: 120px; height: 120px; object-fit: cover;">
+                            </div>
+                            <div class="card-body">
+                                <h4 class="h5 fw-bold mb-1 text-dark">Amina Diallo</h4>
+                                <p class="text-primary small fw-semibold mb-3">Directrice des Opérations (COO)</p>
+                                <p class="card-text text-muted small">Spécialiste en management de projets web complexes et en suivi qualité des relations clients.</p>
+                            </div>
+                            <div class="card-footer bg-transparent border-0 mb-2 d-flex justify-content-center gap-3">
+                                <a href="#" class="text-muted"><i class="fab fa-linkedin fa-lg"></i></a>
+                                <a href="#" class="text-muted"><i class="fab fa-github fa-lg"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col">
+                        <div class="card h-100 border-0 shadow-sm text-center p-3 rounded-4 bg-white">
+                            <div class="d-flex justify-content-center mt-3">
+                                <img src="image/om.jpeg" class="rounded-circle img-fluid shadow-sm" alt="Omar Sy" style="width: 120px; height: 120px; object-fit: cover;">
+                            </div>
+                            <div class="card-body">
+                                <h4 class="h5 fw-bold mb-1 text-dark">Omar Sy</h4>
+                                <p class="text-primary small fw-semibold mb-3">Responsable des Admissions Talents</p>
+                                <p class="card-text text-muted small">Expert en recrutement tech, il valide la robustesse et les compétences de nos freelances.</p>
+                            </div>
+                            <div class="card-footer bg-transparent border-0 mb-2 d-flex justify-content-center gap-3">
+                                <a href="#" class="text-muted"><i class="fab fa-linkedin fa-lg"></i></a>
+                                <a href="#" class="text-muted"><i class="fab fa-twitter fa-lg"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <footer class="bg-dark text-white pt-5 pb-3 mt-5">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-md-3">
+                    <h5 class="fw-bold text-primary mb-3">AfriTalent</h5>
+                    <p class="text-muted small">La première communauté des experts et des talents du secteur de la tech en Afrique.</p>
+                    <div class="d-flex gap-3">
+                        <a href="#" class="text-white opacity-75"><i class="fab fa-linkedin fa-lg"></i></a>
+                        <a href="#" class="text-white opacity-75"><i class="fab fa-twitter fa-lg"></i></a>
+                        <a href="#" class="text-white opacity-75"><i class="fab fa-github fa-lg"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <h5 class="fw-bold mb-3">Liens utiles</h5>
+                    <ul class="list-unstyled text-muted small">
+                        <li class="mb-2"><a href="index.html" class="text-decoration-none text-reset">Accueil</a></li>
+                        <li class="mb-2"><a href="freelances.html" class="text-decoration-none text-reset">Trouver un freelance</a></li>
+                        <li class="mb-2"><a href="tarifs.html" class="text-decoration-none text-reset">Nos Tarifs</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h5 class="fw-bold mb-3">Ressources</h5>
+                    <ul class="list-unstyled text-muted small">
+                        <li class="mb-2"><a href="#" class="text-decoration-none text-reset">Blog & Actualités</a></li>
+                        <li class="mb-2"><a href="#" class="text-decoration-none text-reset">FAQ (Aide)</a></li>
+                        <li class="mb-2"><a href="#" class="text-decoration-none text-reset">Mentions légales</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h5 class="fw-bold mb-3">Support</h5>
+                    <p class="text-muted small mb-2"><i class="fas fa-envelope me-2 text-primary"></i> triomphantpanze@gmail.com</p>
+                    <p class="text-muted small"><i class="fas fa-phone me-2 text-primary"></i> +221 77 472 39 32</p>
+                </div>
+            </div>
+            <hr class="my-4 border-secondary">
+            <div class="text-center text-muted small">
+                <p class="mb-0">© <span id="currentYear">2026</span> AfriTalent. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="registerModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content border-0 shadow">
+                <div class="modal-header bg-light">
+                    <h5 class="modal-title fw-bold" id="registerModalLabel">Rejoindre AfriTalent</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fermer"></button>
+                </div>
+                <div class="modal-body text-center p-4">
+                    <p class="text-muted mb-4">Sélectionnez le type de compte correspondant à vos besoins professionnels :</p>
+                    <div class="d-grid gap-3">
+                        <button class="btn btn-primary py-3 fw-bold rounded-3">Je suis un Talent Tech (Freelance)</button>
+                        <button class="btn btn-outline-dark py-3 fw-bold rounded-3">Je suis une Entreprise (Recruteur)</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <button id="backToTop" class="btn btn-primary position-fixed bottom-0 end-0 m-4 d-none rounded-circle" style="z-index: 1000; width: 45px; height: 45px;" aria-label="Retourner en haut de la page">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>
