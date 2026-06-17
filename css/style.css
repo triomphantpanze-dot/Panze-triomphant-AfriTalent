@@ -1,0 +1,53 @@
+/* Importation des polices */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700;800&display=swap');
+
+:root {
+    --primary-color: #0d6efd;
+    --secondary-color: #198754;
+    --dark-color: #212529;
+    --light-color: #f8f9fa;
+    --font-heading: 'Poppins', sans-serif;
+    --font-body: 'Inter', sans-serif;
+    --spacing-standard: 1.5rem;
+    --transition-base: all 0.3s ease-in-out;
+}
+
+*,
+::before,
+::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-body);
+    color: var(--dark-color);
+    background-color: var(--light-color);
+    line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+}
+
+.navbar {
+    background-color: #fff !important;
+    padding: 1rem 0;
+    transition: var(--transition-base);
+}
+
+.navbar-brand {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+}
+
+.nav-link {
+    color: #555 !important;
+    position: relative;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: var(--primary-color) !important;
+}
