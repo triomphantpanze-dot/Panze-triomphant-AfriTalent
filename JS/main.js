@@ -162,3 +162,164 @@ function initAnimatedCounters() {
         counterObserver.observe(counter);
     });
 }
+function initFreelanceFiltering() {
+
+    const filterSelect = document.getElementById('filterCategory');
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const freelanceCards = document.querySelectorAll('.freelance-card');
+
+    if (freelanceCards.length === 0) return;
+
+    const applyFilter = (selectedCategory) => {
+
+        freelanceCards.forEach(card => {
+
+            const cardCategory = card.getAttribute('data-category');
+
+            if (
+                selectedCategory === 'all' ||
+                cardCategory === selectedCategory
+            ) {
+                card.classList.remove('d-none');
+            } else {
+                card.classList.add('d-none');
+            }
+
+        });
+
+    };
+
+    if (filterSelect) {
+
+        filterSelect.addEventListener('change', (e) => {
+            applyFilter(e.target.value);
+        });
+
+    }
+
+    if (filterButtons.length > 0) {
+
+        filterButtons.forEach(button => {
+
+            button.addEventListener('click', (e) => {
+
+                e.preventDefault();
+
+                filterButtons.forEach(btn => {
+                    btn.classList.remove('active');
+                });
+
+                button.classList.add('active');
+
+                const targetCategory =
+                    button.getAttribute('data-filter');
+
+                applyFilter(targetCategory);
+
+            });
+
+        });
+
+    }
+}
+
+function initContactFormValidation() {
+
+    const form = document.getElementById('contactForm');
+
+    const successAlert =
+        document.getElementById('contactSuccess');
+
+    if (!form) return;
+
+    form.addEventListener('submit', (event) => {
+
+        event.preventDefault();
+
+        let isFormValid = true;
+
+        const nom = document.getElementById('nom');
+        const prenom = document.getElementById('prenom');
+        const email = document.getElementById('email');
+        const sujet = document.getElementById('sujet');
+        const message = document.getElementById('message');
+
+        const emailRegex =
+        /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+
+        if (nom.value.trim() === "") {
+            setInvalid(nom);
+            isFormValid = false;
+        } else {
+            setValid(nom);
+        }
+
+        if (prenom.value.trim() === "") {
+            setInvalid(prenom);
+            isFormValid = false;
+        } else {
+            setValid(prenom);
+        }
+
+        if (
+            email.value.trim() === "" ||
+            !emailRegex.test(email.value.trim())
+        ) {
+            setInvalid(email);
+            isFormValid = false;
+        } else {
+            setValid(email);
+        }
+
+        if (sujet.value === "") {
+            setInvalid(sujet);
+            isFormValid = false;
+        } else {
+            setValid(sujet);
+        }
+
+        if (message.value.trim().length < 20) {
+            setInvalid(message);
+            isFormValid = false;
+        } else {
+            setValid(message);
+        }
+
+        if (isFormValid) {
+
+            if (successAlert) {
+                successAlert.classList.remove('d-none');
+            }
+
+            form.reset();
+
+            clearValidationClasses(form);
+
+        }
+    });
+}
+
+function setInvalid(element) {
+    element.classList.remove('is-valid');
+    element.classList.add('is-invalid');
+}
+
+function setValid(element) {
+    element.classList.remove('is-invalid');
+    element.classList.add('is-valid');
+}
+
+function clearValidationClasses(formElement) {
+
+    const validatedElements =
+        formElement.querySelectorAll('.is-valid, .is-invalid');
+
+    validatedElements.forEach(el => {
+
+        el.classList.remove(
+            'is-valid',
+            'is-invalid'
+        );
+
+    });
+}
