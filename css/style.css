@@ -1,20 +1,32 @@
-/* Importation des polices */
+/* --------------------------------------------------------------------------
+   1. IMPORTATIONS DES POLICES (Google Fonts - 2 polices requises)
+   -------------------------------------------------------------------------- */
+/* Poppins pour les titres expressifs et Inter pour un corps de texte lisible */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700;800&display=swap');
 
+/* --------------------------------------------------------------------------
+   2. VARIABLES CSS (Custom Properties - Définies dans :root, minimum 6)
+   -------------------------------------------------------------------------- */
 :root {
-    --primary-color: #0d6efd;
-    --secondary-color: #198754;
-    --dark-color: #212529;
-    --light-color: #f8f9fa;
+    /* Palette de couleurs cohérente (Maximum 5 couleurs principales) */
+    --primary-color: #0d6efd;       /* Bleu principal AfriTalent */
+    --secondary-color: #198754;     /* Vert d'accentuation pour les succès/badges */
+    --dark-color: #212529;          /* Teinte sombre pour les textes et titres */
+    --light-color: #f8f9fa;         /* Fond clair pour le site */
+    
+    /* Variables de Typographie */
     --font-heading: 'Poppins', sans-serif;
     --font-body: 'Inter', sans-serif;
+    
+    /* Variables d'Espacement et Design */
     --spacing-standard: 1.5rem;
     --transition-base: all 0.3s ease-in-out;
 }
 
-*,
-::before,
-::after {
+/* --------------------------------------------------------------------------
+   3. RESET CSS & STYLES DE BASE (Marges, paddings, body)
+   -------------------------------------------------------------------------- */
+*, ::after, ::before {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -25,112 +37,743 @@ body {
     color: var(--dark-color);
     background-color: var(--light-color);
     line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* Application de la police expressive aux titres */
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    color: var(--dark-color);
+    font-weight: 700;
+}
+
+/* Styles de base pour les liens */
+a {
+    transition: var(--transition-base);
+}
+
+/* --------------------------------------------------------------------------
+   4. STYLISATION DE LA NAVBAR (Logo visible, liens alignés)
+   -------------------------------------------------------------------------- */
+/* Conteneur principal de la navigation */
+.navbar {
+    background-color: #ffffff !important;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    transition: var(--transition-base);
+}
+
+/* Mise en valeur du logo AfriTalent */
+.navbar-brand {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    letter-spacing: -0.5px;
+}
+
+/* Alignement et espacement des liens de navigation */
+.navbar-nav .nav-item {
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+}
+
+.nav-link {
+    font-size: 0.95rem;
+    color: #555555 !important;
+    position: relative;
+    padding-bottom: 0.25rem !important;
+}
+
+/* Changement de couleur au survol et état actif */
+.nav-link:hover,
+.nav-link.active {
+    color: var(--primary-color) !important;
+}
+
+/* Effet esthétique d'alignement sous les liens de la navbar */
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--primary-color);
+    transition: var(--transition-base);
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+    width: 100%;
+}
+
+/* Ajustement pour le bouton CTA dans la navbar */
+.navbar .btn-primary {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    padding: 0.5rem 1.25rem;
+}
+/* ==========================================================================
+   PROJET : AfriTalent - Feuille de style principale (style.css)
+   COMMIT 4 : CSS : Bento Grid, sections hero et catégories, effets hover
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. IMPORTATIONS DES POLICES (Google Fonts - Identique Commit 3)
+   -------------------------------------------------------------------------- */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700;800&display=swap');
+
+/* --------------------------------------------------------------------------
+   2. VARIABLES CSS (Custom Properties - Identique Commit 3)
+   -------------------------------------------------------------------------- */
+:root {
+    --primary-color: #0d6efd;       
+    --secondary-color: #198754;     
+    --dark-color: #212529;          
+    --light-color: #f8f9fa;         
+    --font-heading: 'Poppins', sans-serif;
+    --font-body: 'Inter', sans-serif;
+    --spacing-standard: 1.5rem;
+    --transition-base: all 0.3s ease-in-out;
+    
+    /* Nouvelle variable ajoutée pour les arrondis de cartes style Bento 2026 */
+    --border-radius-bento: 1.25rem;
+}
+
+/* --------------------------------------------------------------------------
+   3. RESET CSS & STYLES DE BASE (Identique Commit 3)
+   -------------------------------------------------------------------------- */
+*, ::after, ::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-body);
+    color: var(--dark-color);
+    background-color: var(--light-color);
+    line-height: 1.6;
+    overflow-x: hidden;
 }
 
 h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-heading);
+    color: var(--dark-color);
+    font-weight: 700;
 }
 
+a {
+    text-decoration: none;
+    transition: var(--transition-base);
+}
+
+/* --------------------------------------------------------------------------
+   4. STYLISATION DE LA NAVBAR (Identique Commit 3)
+   -------------------------------------------------------------------------- */
 .navbar {
-    background-color: #fff !important;
-    padding: 1rem 0;
+    background-color: #ffffff !important;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
     transition: var(--transition-base);
 }
 
 .navbar-brand {
     font-family: var(--font-heading);
     font-size: 1.5rem;
+    letter-spacing: -0.5px;
+}
+
+.navbar-nav .nav-item {
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
 }
 
 .nav-link {
-    color: #555 !important;
+    font-size: 0.95rem;
+    color: #555555 !important;
     position: relative;
+    padding-bottom: 0.25rem !important;
 }
 
 .nav-link:hover,
 .nav-link.active {
     color: var(--primary-color) !important;
 }
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--primary-color);
+    transition: var(--transition-base);
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+    width: 100%;
+}
+
+.navbar .btn-primary {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    padding: 0.5rem 1.25rem;
+}
+
+/* ==========================================================================
+   NOUVEAUTÉS DU COMMIT 4 : COMPOSANTS ET DESIGN DE LA PAGE D'ACCUEIL
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   5. SECTION HERO (Disposition asymétrique et typographie expressive)
+   -------------------------------------------------------------------------- */
 .hero-section {
     padding: 5rem 0;
-    background: #fff;
+    background-color: #ffffff;
+}
+
+/* Typographie de grande taille et expressive (Style 2026) */
+.hero-title {
+    font-size: 3.5rem;
+    line-height: 1.15;
+    letter-spacing: -1.5px;
+    margin-bottom: 1.5rem;
+}
+
+/* Effet de dégradé sur le texte pour accentuer le mot-clé principal */
+.text-gradient {
+    background: linear-gradient(45deg, var(--primary-color), #00c6ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Image asymétrique avec rotation légère et ombrage stylisé */
+.hero-image-wrapper {
+    position: relative;
+    padding: 1rem;
+}
+
+.hero-image-wrapper img {
+    border-radius: var(--border-radius-bento);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+    transform: rotate(1deg);
+    transition: var(--transition-base);
+}
+
+.hero-image-wrapper img:hover {
+    transform: rotate(0deg) scale(1.02);
+}
+
+/* --------------------------------------------------------------------------
+   6. SECTION "COMMENT ÇA MARCHE" (Mise en page moderne en Bento Grid)
+   -------------------------------------------------------------------------- */
+.bento-grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-auto-rows: minmax(220px, auto);
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+.card{
+    grid-row: inherit;
+    grid-column: span 3;
+}
+/* Style de base d'une carte/boîte Bento */
+.bento-card {
+    background-color: #ffffff;
+    padding: 2.5rem;
+    border-radius: var(--border-radius-bento);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    transition: var(--transition-base);
+    display: flex;
+    flex-column: column;
+    justify-content: space-between;
+}
+
+/* Configuration de la grille asymétrique (Desktop) */
+.bento-card-large {
+    grid-column: span 7;
+}
+
+.bento-card-medium {
+    grid-column: span 5;
+}
+
+/* Numéro d'étape stylisé et icônes */
+.bento-step-num {
+    font-size: 0.9rem;
+    font-weight: 800;
+    text-decoration: uppercase;
+    color: var(--primary-color);
+    letter-spacing: 1px;
+    margin-bottom: 0.5rem;
+}
+
+.bento-icon {
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+}
+
+/* Effet hover sur le Bento */
+.bento-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.06);
+    border-color: rgba(13, 110, 253, 0.2);
+}
+
+/* --------------------------------------------------------------------------
+   7. SECTION "CATÉGORIES DE SERVICES" (Effets hover CSS avancés)
+   -------------------------------------------------------------------------- */
+.category-card {
+    background-color: #ffffff;
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    border-radius: var(--border-radius-bento);
+    padding: 2rem;
+    text-align: center;
+    height: 100%;
+    /* Transition fluide pour l'ombre et la transformation */
+    transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), 
+                box-shadow 0.4s cubic-bezier(0.165, 0.84, 0.44, 1),
+                border-color 0.3s ease;
+}
+
+.category-icon-wrapper {
+    width: 60px;
+    height: 60px;
+    background-color: rgba(13, 110, 253, 0.06);
+    color: var(--primary-color);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem auto;
+    font-size: 1.5rem;
+    transition: var(--transition-base);
+}
+
+[span_3](start_span)/* Éléments Hover demandés : Ombre prononcée, transformation de déplacement et de couleur[span_3](end_span) */
+.category-card:hover {
+    transform: translateY(-10px); /* Déplacement vers le haut */
+    box-shadow: 0 20px 40px rgba(13, 110, 253, 0.08); /* Ombre portée douce */
+    border-color: rgba(13, 110, 253, 0.25);
+}
+
+.category-card:hover .category-icon-wrapper {
+    background-color: var(--primary-color);
+    color: #ffffff;
+    transform: scale(1.1);
+}
+
+/* --------------------------------------------------------------------------
+   8. SECTION TÉMOIGNAGES (Carousel Bootstrap fonctionnel)
+   -------------------------------------------------------------------------- */
+.testimonials-section {
+    background-color: #ffffff;
+    padding: 5rem 0;
+}
+
+.testimonial-item {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+.testimonial-avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid rgba(13, 110, 253, 0.15);
+    margin-bottom: 1.5rem;
+}
+
+.testimonial-stars {
+    color: #ffc107; /* Couleur or pour les icônes étoiles FontAwesome */
+    margin-bottom: 1rem;
+}
+
+/* Personnalisation esthétique des boutons flèches du carousel Bootstrap */
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-color: var(--dark-color);
+    border-radius: 50%;
+    padding: 1.25rem;
+    background-size: 50%;
+}
+/* ==========================================================================
+   PROJET : AfriTalent - Feuille de style principale (style.css)
+   COMMIT 5 : CSS : responsive design mobile et tablette, media queries
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. IMPORTATIONS DES POLICES (Google Fonts - Identique Commit 3 & 4)
+   -------------------------------------------------------------------------- */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700;800&display=swap');
+
+/* --------------------------------------------------------------------------
+   2. VARIABLES CSS (Custom Properties - Identique Commit 3 & 4)
+   -------------------------------------------------------------------------- */
+:root {
+    --primary-color: #0d6efd;       
+    --secondary-color: #198754;     
+    --dark-color: #212529;          
+    --light-color: #f8f9fa;         
+    --font-heading: 'Poppins', sans-serif;
+    --font-body: 'Inter', sans-serif;
+    --spacing-standard: 1.5rem;
+    --transition-base: all 0.3s ease-in-out;
+    --border-radius-bento: 1.25rem;
+}
+
+/* --------------------------------------------------------------------------
+   3. RESET CSS & STYLES DE BASE (Identique Commit 3 & 4)
+   -------------------------------------------------------------------------- */
+*, ::after, ::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-body);
+    color: var(--dark-color);
+    background-color: var(--light-color);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    color: var(--dark-color);
+    font-weight: 700;
+}
+
+a {
+    text-decoration: none;
+    transition: var(--transition-base);
+}
+
+/* --------------------------------------------------------------------------
+   4. STYLISATION DE LA NAVBAR (Adaptations pour le menu mobile incluses)
+   -------------------------------------------------------------------------- */
+.navbar {
+    background-color: #ffffff !important;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    transition: var(--transition-base);
+}
+
+.navbar-brand {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    letter-spacing: -0.5px;
+}
+
+.navbar-nav .nav-item {
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+}
+
+.nav-link {
+    font-size: 0.95rem;
+    color: #555555 !important;
+    position: relative;
+    padding-bottom: 0.25rem !important;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: var(--primary-color) !important;
+}
+
+/* Soulignement esthétique masqué par défaut sur mobile pour éviter les bugs visuels */
+@media (min-width: 992px) {
+    .nav-link::after {
+        content: '';
+        position: absolute;
+        width: 0;
+        height: 2px;
+        bottom: 0;
+        left: 0;
+        background-color: var(--primary-color);
+        transition: var(--transition-base);
+    }
+
+    .nav-link:hover::after,
+    .nav-link.active::after {
+        width: 100%;
+    }
+}
+
+.navbar .btn-primary {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    padding: 0.5rem 1.25rem;
+}
+
+/* --------------------------------------------------------------------------
+   5. SECTION HERO (Style de base - Desktop)
+   -------------------------------------------------------------------------- */
+.hero-section {
+    padding: 5rem 0;
+    background-color: #ffffff;
 }
 
 .hero-title {
     font-size: 3.5rem;
     line-height: 1.15;
+    letter-spacing: -1.5px;
+    margin-bottom: 1.5rem;
 }
 
 .text-gradient {
-    background: linear-gradient(45deg,#0d6efd,#00c6ff);
+    background: linear-gradient(45deg, var(--primary-color), #00c6ff);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
+.hero-image-wrapper {
+    position: relative;
+    padding: 1rem;
+}
+
+.hero-image-wrapper img {
+    border-radius: var(--border-radius-bento);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+    transform: rotate(1deg);
+    transition: var(--transition-base);
+}
+
+.hero-image-wrapper img:hover {
+    transform: rotate(0deg) scale(1.02);
+}
+
+/* --------------------------------------------------------------------------
+   6. SECTION "COMMENT ÇA MARCHE" (Bento Grid - Structure Desktop)
+   -------------------------------------------------------------------------- */
 .bento-grid {
     display: grid;
-    grid-template-columns: repeat(12,1fr);
+    grid-template-columns: repeat(12, 1fr);
+    grid-auto-rows: minmax(220px, auto);
     gap: 1.5rem;
+    margin-top: 2rem;
 }
 
 .bento-card {
-    background: #fff;
-    padding: 2rem;
-    border-radius: 1.25rem;
-    transition: 0.3s;
+    background-color: #ffffff;
+    padding: 2.5rem;
+    border-radius: var(--border-radius-bento);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    transition: var(--transition-base);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.bento-card-large {
+    grid-column: span 7;
+}
+
+.bento-card-medium {
+    grid-column: span 5;
+}
+
+.bento-step-num {
+    font-size: 0.9rem;
+    font-weight: 800;
+    text-uppercase: uppercase;
+    color: var(--primary-color);
+    letter-spacing: 1px;
+    margin-bottom: 0.5rem;
+}
+
+.bento-icon {
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
 }
 
 .bento-card:hover {
     transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.06);
+    border-color: rgba(13, 110, 253, 0.2);
 }
 
+/* --------------------------------------------------------------------------
+   7. SECTIONS CATÉGORIES & TÉMOIGNAGES (Identique Commit 4)
+   -------------------------------------------------------------------------- */
 .category-card {
-    background: #fff;
+    background-color: #ffffff;
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    border-radius: var(--border-radius-bento);
     padding: 2rem;
-    border-radius: 1.25rem;
-    transition: 0.4s;
+    text-align: center;
+    height: 100%;
+    transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), 
+                box-shadow 0.4s cubic-bezier(0.165, 0.84, 0.44, 1),
+                border-color 0.3s ease;
+}
+
+.category-icon-wrapper {
+    width: 60px;
+    height: 60px;
+    background-color: rgba(13, 110, 253, 0.06);
+    color: var(--primary-color);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem auto;
+    font-size: 1.5rem;
+    transition: var(--transition-base);
 }
 
 .category-card:hover {
     transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(13, 110, 253, 0.08);
+    border-color: rgba(13, 110, 253, 0.25);
+}
+
+.category-card:hover .category-icon-wrapper {
+    background-color: var(--primary-color);
+    color: #ffffff;
+    transform: scale(1.1);
 }
 
 .testimonials-section {
+    background-color: #ffffff;
     padding: 5rem 0;
 }
-@media (max-width: 992px){
 
-    .navbar-collapse{
-        background:#fff;
-        padding:1rem;
+.testimonial-item {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+.testimonial-avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid rgba(13, 110, 253, 0.15);
+    margin-bottom: 1.5rem;
+}
+
+.testimonial-stars {
+    color: #ffc107;
+    margin-bottom: 1rem;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-color: var(--dark-color);
+    border-radius: 50%;
+    padding: 1.25rem;
+    background-size: 50%;
+}
+
+
+/* ==========================================================================
+   NOUVEAUTÉS DU COMMIT 5 : RESPONSIVE DESIGN & MEDIA QUERIES OBLIGATOIRES
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   8. MEDIA QUERY : ADAPTATION TABLETTE (Écrans inférieurs à 992px)
+   -------------------------------------------------------------------------- */
+@media (max-width: 992px) {
+    /* Navbar Hamburger : Espacement des liens empilés verticalement */
+    .navbar-collapse {
+        background-color: #ffffff;
+        padding: 1rem;
+        border-radius: 0.5rem;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+        margin-top: 1rem;
+    }
+    
+    .navbar-nav .nav-item {
+        margin: 0.5rem 0;
+        width: 100%;
+        text-align: center;
+    }
+    
+    .navbar .btn-primary {
+        width: 100%; /* Le bouton CTA s'adapte à la largeur du menu déroulé */
+        margin-top: 0.5rem;
     }
 
-    .hero-title{
-        font-size:2.8rem;
+    /* Section Hero : Ajustement de la typographie et centrage */
+    .hero-section {
+        padding: 3.5rem 0;
+        text-center: center;
     }
 
-    .bento-grid{
-        grid-template-columns:1fr;
+    .hero-title {
+        font-size: 2.8rem; /* Plus compact pour l'écran tablette */
+    }
+    
+    /* Correction de l'alignement asymétrique sur tablette */
+    .hero-image-wrapper {
+        margin-top: 2rem;
+        display: flex;
+        justify-content: center;
+    }
+    
+    .hero-image-wrapper img {
+        transform: rotate(0deg); /* Annulation de la rotation */
+        max-width: 85%;
     }
 
-    .bento-card-large,
-    .bento-card-medium{
-        grid-column:span 1;
+    /* Bento Grid : Passage d'un flux asymétrique à un flux vertical linéaire */
+    .bento-grid {
+        grid-template-columns: 1fr; /* Une seule colonne */
+        grid-auto-rows: auto;
+    }
+
+    .bento-card-large, 
+    .bento-card-medium {
+        grid-column: span 1; /* Occupe toute la largeur de la colonne */
+        padding: 2rem;
     }
 }
 
-@media (max-width:576px){
-
-    .hero-title{
-        font-size:2.1rem;
-    }
-
+/* --------------------------------------------------------------------------
+   9. MEDIA QUERY : ADAPTATION SMARTPHONE MOBILE (Écrans inférieurs à 576px / 375px)
+   -------------------------------------------------------------------------- */
+@media (max-width: 576px) {
+    /* Réduction globale des espacements pour maximiser l'espace utile */
     .hero-section,
-    .testimonials-section{
-        padding:2.5rem 0;
+    .testimonials-section,
+    main {
+        padding: 2.5rem 0 !important;
     }
 
-    .bento-card{
-        padding:1.5rem;
+    /* Typographie ultra-expressive mais calibrée pour éviter les coupures (375px) */
+    .hero-title {
+        font-size: 2.1rem;
+        letter-spacing: -0.8px;
+    }
+    
+    .display-5 {
+        font-size: 1.85rem !important; /* Pour les titres de vos autres pages */
+    }
+
+    /* Ajustement des cartes Bento sur mobile */
+    .bento-card {
+        padding: 1.5rem;
+    }
+
+    .bento-icon {
+        margin-bottom: 1rem;
+    }
+    
+    /* Optimisation des marges des éléments Bootstrap empilés */
+    .card, .category-card {
+        margin-bottom: 0.5rem;
     }
 }
